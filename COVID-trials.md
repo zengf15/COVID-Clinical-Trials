@@ -178,7 +178,7 @@ covid.subset %>%
 
 Maybe we can investigate the funding sources of those discontinued
 studies… Unfortunately, the source information (such as “other”) is too
-vague. We can only see that secondary to “other” source of studies, a
+vague. We can only see that secondary to “other”-funded studies, a
 number of industry studies did not make it.
 
 ``` r
@@ -191,22 +191,14 @@ covid.subset %>%
 
 ![](COVID-trials_files/figure-gfm/discontinued-studies-1.png)<!-- -->
 
-### Funding sources of promising studies
+### The status and types of single-gender studies
 
-Alternatively, we can also look into the funding sources of studies that
-have potentials, which I label “promising studies”.
-
-``` r
-covid.subset %>%
-  filter(Status != "Suspended" & Status != "Withdrawn" & Status != "Terminated") %>%
-  ggplot(aes(y = Status, fill = Funded.Bys)) +
-  geom_bar() +
-  facet_wrap(~Study.Type)
-```
-
-![](COVID-trials_files/figure-gfm/promising-studies-1.png)<!-- -->
-
-### The status and types of one-gender studies
+Most male, intervention studies are completed. Most female studies are
+still recruiting. There are more completed, recruiting, or “not yet
+recruiting” female studies than male ones. Very few male or female
+studies are withdrawn, and none are suspended or terminated. This might
+indicate that single-gender studies, especially female studies, are
+emphasized and valued by the clinical research field.
 
 ``` r
 covid %>%
